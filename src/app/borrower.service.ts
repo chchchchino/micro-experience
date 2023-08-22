@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
   
 export class BorrowerService {  
   
-  private baseUrl = 'http://localhost:8080/api/';  
+  private baseUrl = 'http://ec2-35-160-186-240.us-west-2.compute.amazonaws.com/api/';  
   
   constructor(private http:HttpClient) { }  
   
