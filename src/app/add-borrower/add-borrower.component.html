@@ -1,0 +1,48 @@
+<h3>Create Borrower</h3>  
+<div class="row">  
+  <div class="col-sm-4"></div>  
+  <div class="col-sm-4" >  
+    <div [hidden]="submitted" style="width: 400px;">  
+      <form [formGroup]="borrowersaveform" #saveborrower (ngSubmit)="saveBorrower()">  
+          <div class="form-group">  
+              <label for="name">Borrower Name</label>  
+              <input type="text" class="form-control"  formControlName="borrowerName" data-toggle="tooltip"   
+                 data-placement="right" title="Enter Borrower Name" >  
+              <div class="alert alert-danger" *ngIf = "(BorrowerName.touched) && (BorrowerName.invalid)"   
+                style="margin-top: 5px;">  
+                  <span *ngIf="BorrowerName.errors['required']">Borrower Name is Required</span>  
+                    <span *ngIf = "BorrowerName.errors['minlength']">   
+                        MinLength Error   
+                    </span>                     
+                </div>  
+          </div>  
+    
+          <div class="form-group">  
+              <label for="name">Borrower Email</label>  
+              <input type="text" class="form-control" formControlName="borrowerEmail"   
+                data-toggle="tooltip" data-placement="right" title="Enter Borrower Email">  
+                <div class="alert alert-danger" *ngIf = "(BorrowerEmail.touched) && (BorrowerEmail.invalid)"   
+                style="margin-top: 5px;">  
+                  <span *ngIf="BorrowerEmail.errors['required']">Borrower Email is Required</span>  
+                    <span *ngIf = "BorrowerEmail.errors['email']">   
+                        Invalid Email Format   
+                    </span>                     
+                </div>  
+          </div>  
+    
+          <button type="submit" class="btn btn-success">Submit</button>  
+      </form>  
+  </div>  
+  </div>  
+  <div class="col-sm-4"></div>  
+</div>  
+<div class="row">  
+  <div class="col-sm-4"></div>  
+  <div class="col-sm-4">  
+      <div [hidden]="!submitted">  
+         <h4>Borrower Added Successfully!</h4>  
+         <button (click)="addBorrowerForm()" class='btn btn-primary'>Add More Borrowers</button>  
+      </div>        
+  </div>  
+  <div class="col-sm-4"></div>  
+</div>  
